@@ -72,3 +72,28 @@ class StructuredMesh2D:
     @property
     def shape(self):
         return self.grid_x.shape
+
+
+class UniformStructuredMesh2D(StructuredMesh2D):
+
+    def __init__(
+            self,
+            n_x: int,
+            l_x: float,
+            l_y: float,
+            offset_x: float = 0.,
+            offset_y: float = 0.) -> None:
+
+        # Define the number of points
+        self.n_x = n_x
+        h = l_x / n_x
+        n_y = int(l_y / h)
+        l_y = h * n_y
+
+        # Define the length
+        self.l_x = l_x
+        self.l_y = l_y
+
+        # Define the offset
+        self.offset_x = offset_x
+        self.offset_y = offset_y
