@@ -7,14 +7,14 @@ Module defining functions to compute metrics.
 ###########
 
 import numpy as np
-from numba import jit
+from numba import njit
 
 #############
 # Functions #
 #############
 
 
-@jit(nopython=True)
+@njit
 def compute_L2_error(num_vals: np.ndarray, ana_vals: np.ndarray, normalize=True):
     """
     Compute the L2 error between the given numerical and analytical values.
